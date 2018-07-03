@@ -1,0 +1,80 @@
+﻿Database structure:
+	client_orders
+		OrderItems[]
+		Client
+
+	clients
+		ClientName
+		ClienDiscount
+
+	overall_orders
+		CatalogNum
+		Date
+		ClientOders
+
+	products
+		id
+		Page
+		Price
+--------------------------------------
+Classes:
+	Client
+        int ClientId
+        string ClientName
+        int ClientDiscount
+
+    Product
+        string ProductCode
+        int Page
+        int Price
+
+    OrderItem
+        int OrderItemId
+        Product Product
+        int Quantity
+
+    ClientOrder
+        int ClientOrderId
+        List<OrderItem> OrderItems
+        Client Client
+
+    OverallOrder
+        int OverallOrderId
+        int CatalogNum
+        DateTime Date
+        List<ClientOrder> ClientOrders
+--------------------------------------
+Windows:
+	CatalogEditor
+		>Add new catalog
+		>Edit catalog Num and Date
+	ClientEditor
+		>Add new client
+		>Edit client Name and Discount
+		>Delete clients
+	OrderEditor
+		>Add new order
+		>Edit order Items and Quantity
+		>Remove order Items
+	ProductEditor
+		>Add new product
+		>Edit product Price and Page
+	MainForm(Form1)
+		>Remove OverallOrders
+--------------------------------------
+TODO
+v0
+	* Full Rusiian language
+	* Double click to edit order
+	+ Update overview on delete
+	+ Не суммируются одинаковые позиции
+	* Ошибка пустой базы
+v1
+	* Calculate client order with discount
+	* Show orders by client with discount
+	* Fold/unfold data items
+v2
+	* Add password support
+	* Closing orders - when campaing closed/order sent
+	* Working with online
+	* Settings
